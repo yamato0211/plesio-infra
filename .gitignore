@@ -1,0 +1,7 @@
+secret.json
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+kubeconfig-prod
+terraform.tfvars
