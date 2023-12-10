@@ -5,3 +5,4 @@ terraform.tfstate.backup
 .terraform.lock.hcl
 kubeconfig-prod
 terraform.tfvars
+gke_gcloud_auth_plugin_cache
