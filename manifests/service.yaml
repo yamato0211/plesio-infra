@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: plesio-service
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  type: LoadBalancer
+  selector:
+    app: plesio-server
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
