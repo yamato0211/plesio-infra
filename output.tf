@@ -22,3 +22,8 @@ output "static_ip" {
   description = "static ip"
   value       = google_compute_global_address.static_ip.address
 }
+
+output "argo_static_ip" {
+  description = "argo static ip"
+  value       = google_compute_global_address.argo_static_ip.address
+}

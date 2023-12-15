@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: argo-cert
+  namespace: argocd
+spec:
+  domains:
+    - argo.ottotto.dev
