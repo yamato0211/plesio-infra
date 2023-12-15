@@ -13,6 +13,7 @@ spec:
       labels:
         app: plesio-server
     spec:
+      serviceAccountName: prod-sa
       containers:
         - name: plesio-server
           image: asia-northeast1-docker.pkg.dev/plesio-infra-407706/plesio-infra-407706-repository/plesio-server:85c6e90016fada82557167e17a12efc3214d59b7
@@ -29,3 +30,12 @@ spec:
               value: "main"
             - name: MYSQL_HOST
               value: "127.0.0.1"
+        - name: cloud-sql-proxy
+          image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:latest
+          args:
+            - "--private-ip"
+            - "--structured-logs"
+            - "--port=3306"
+            - "plesio-infra-407706:asia-northeast1:mysql-prod"
+          securityContext:
+            runAsNonRoot: true
