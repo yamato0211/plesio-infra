@@ -5,6 +5,11 @@ metadata:
   namespace: default
 spec:
   replicas: 1
+  strategy:
+   type: RollingUpdate
+   rollingUpdate:
+     maxSurge: 1
+     maxUnavailable: 25%
   selector:
     matchLabels:
       app: plesio-server
@@ -19,6 +24,14 @@ spec:
           image: asia-northeast1-docker.pkg.dev/plesio-infra-407706/plesio-infra-407706-repository/plesio-server:7f930c1cfb649ada1f9fdd90fdc5fb39eb94eb76
           ports:
             - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
           env:
             - name: MYSQL_PASSWORD
               value: "kumayama0211"
