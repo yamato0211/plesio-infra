@@ -6,10 +6,10 @@ metadata:
 spec:
   replicas: 1
   strategy:
-   type: RollingUpdate
-   rollingUpdate:
-     maxSurge: 1
-     maxUnavailable: 25%
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
   selector:
     matchLabels:
       app: plesio-server
@@ -21,7 +21,7 @@ spec:
       serviceAccountName: prod-sa
       containers:
         - name: plesio-server
-          image: asia-northeast1-docker.pkg.dev/plesio-infra-407706/plesio-infra-407706-repository/plesio-server:7f930c1cfb649ada1f9fdd90fdc5fb39eb94eb76
+          image: asia-northeast1-docker.pkg.dev/plesio-infra-407706/plesio-infra-407706-repository/plesio-server:8fc6c0e932920cd49410f6cdb5302e4da8ddf56c
           ports:
             - containerPort: 8080
           readinessProbe:
