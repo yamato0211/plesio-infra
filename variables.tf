@@ -5,6 +5,18 @@ variable "gcp_project_id" {
 variable "gcp_region" {
   description = "GCP region"
 }
+variable "db_name" {
+  description = "name of database"
+}
+variable "db_user" {
+  description = "name of database user"
+}
+variable "db_password" {
+  description = "password of database user"
+}
+variable "bastion_ssh_user" {
+  description = "ssh user of bastion host"
+}
 
 # others
 variable "cluster_name" {

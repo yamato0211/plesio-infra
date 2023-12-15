@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plesio-server
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plesio-server
+  template:
+    metadata:
+      labels:
+        app: plesio-server
+    spec:
+      containers:
+      - name: plesio-server
+        image: asia-northeast1-docker.pkg.dev/plesio-infra-407706/plesio-infra-407706-repository/plesio-server@sha256:48a6c0cf5a5a0adac4b5ede8f20c62cc52043bcef845d441e9f7525043387ab0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: MYSQL_PASSWORD
+          value: "kumayama0211"
+        - name: MYSQL_USER
+          value: "admin"
+        - name: MYSQL_DB
+          value: "main"
+        - name: MYSQL_HOST
+          value: "127.0.0.1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plesio-service
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  type: LoadBalancer
+  selector:
+    app: plesio-server
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP

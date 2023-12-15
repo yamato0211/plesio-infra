@@ -1,3 +1,0 @@
-backend:
-  imageName: "plesio-server"
-  imageTag: "latest"
