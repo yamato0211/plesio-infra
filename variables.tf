@@ -17,6 +17,9 @@ variable "db_password" {
 variable "bastion_ssh_user" {
   description = "ssh user of bastion host"
 }
+variable "my_domain" {
+  description = "domain name of api server"
+}
 
 # others
 variable "cluster_name" {
