@@ -15,7 +15,7 @@ output "bastion_public_ip" {
 
 output "name_servers" {
   description = "name servers"
-  value = google_dns_managed_zone.my_zone.name_servers
+  value       = google_dns_managed_zone.my_zone.name_servers
 }
 
 output "static_ip" {
@@ -26,4 +26,14 @@ output "static_ip" {
 output "argo_static_ip" {
   description = "argo static ip"
   value       = google_compute_global_address.argo_static_ip.address
+}
+
+output "redis_host" {
+  description = "redis endpoint"
+  value       = google_redis_instance.redis_instance.host
+}
+
+output "redis_port" {
+  description = "redis port"
+  value       = google_redis_instance.redis_instance.port
 }

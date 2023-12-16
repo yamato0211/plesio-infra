@@ -8,8 +8,8 @@ module "my-app-workload-identity" {
 
 # GKE クラスターのサービスアカウントを取得
 data "google_service_account" "gke_service_account" {
-  project     = var.gcp_project_id
-  account_id  = module.gke.service_account
+  project    = var.gcp_project_id
+  account_id = module.gke.service_account
 }
 
 # Artifact Registry リーダーロールを GKE クラスターのサービスアカウントに付与

@@ -43,6 +43,8 @@ spec:
               value: "3306"
             - name: MYSQL_HOST
               value: "127.0.0.1"
+            - name: REDIS_ENDPOINT
+              value: "10.207.38.67:6379"
         - name: cloud-sql-proxy
           image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:latest
           args:
