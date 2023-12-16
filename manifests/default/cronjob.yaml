@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: update-users-job
@@ -22,13 +22,13 @@ spec:
                 value: "3306"
               - name: MYSQL_HOST
                 value: "127.0.0.1"
-          restartPolicy: OnFailure
           - name: cloud-sql-proxy
-          image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:latest
-          args:
-            - "--private-ip"
-            - "--structured-logs"
-            - "--port=3306"
-            - "plesio-infra-407706:asia-northeast1:mysql-prod"
-          securityContext:
-            runAsNonRoot: true
+            image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:latest
+            args:
+              - "--private-ip"
+              - "--structured-logs"
+              - "--port=3306"
+              - "plesio-infra-407706:asia-northeast1:mysql-prod"
+            securityContext:
+              runAsNonRoot: true
+          restartPolicy: OnFailure
