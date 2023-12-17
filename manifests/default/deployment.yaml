@@ -21,7 +21,7 @@ spec:
       serviceAccountName: prod-sa
       containers:
         - name: plesio-server
-          image: asia-northeast1-docker.pkg.dev/plesio-infra-407706/plesio-infra-407706-repository/plesio-server:ad452cb0e586f62d73e6f87e87b95c65caaf8c7a
+          image: asia-northeast1-docker.pkg.dev/plesio-infra-407706/plesio-infra-407706-repository/plesio-server:cf01651ba21eea13a65a323ce1dfb92ed86ad250
           ports:
             - containerPort: 8080
           readinessProbe:
