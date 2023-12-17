@@ -4,6 +4,7 @@ metadata:
   name: plesio-service
   annotations:
     cloud.google.com/neg: '{"ingress": true}'
+    cloud.google.com/backend-config: '{“default”: “websocket-backendconfig”}'
 spec:
   type: NodePort
   selector:

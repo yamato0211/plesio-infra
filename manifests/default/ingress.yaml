@@ -8,6 +8,7 @@ metadata:
     networking.gke.io/managed-certificates: plesio-cert
     kubernetes.io/ingress.class: "gce"
     kubernetes.io/ingress.allow-http: "true"
+    cloud.google.com/backend-config: '{“default”: “websocket-backendconfig”}'
 spec:
   defaultBackend:
     service:
